@@ -3,3 +3,6 @@
 
 # User-Specific Binaries
 [[ -d "${HOME}/bin" ]] && PATH="${HOME}/bin":${PATH}
+
+# Make typed commands cyan for easy scanning and readability
+zle_highlight=(default:fg=cyan)
