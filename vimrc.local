@@ -53,3 +53,6 @@ function! OpenToLineNumber()
 endfunction
 
 autocmd BufNewFile,BufEnter,BufRead *:* nested call OpenToLineNumber()
+
+" Save anytime we leave a buffer or Vim loses focus
+autocmd BufLeave,FocusLost * silent! wall
