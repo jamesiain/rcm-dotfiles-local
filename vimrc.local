@@ -35,3 +35,16 @@ set pastetoggle=<F2>    " To disable autoindenting before a large paste
 
 set tabstop=4     " TABs are 4 spaces wide
 set shiftwidth=4  " Indent by 4 spaces
+
+" Open to linenumber - ex. vim my_file.c:100
+" https://github.com/halogenandtoast/vim/blob/master/vimrc#L259
+
+function! OpenToLineNumber()
+  let filename=expand("%")
+  let parts=split(filename, ":")
+  exec ":e " . parts[0]
+  exec ":" . parts[1]
+  redraw!
+endfunction
+
+autocmd BufNewFile,BufEnter,BufRead *:* nested call OpenToLineNumber()
