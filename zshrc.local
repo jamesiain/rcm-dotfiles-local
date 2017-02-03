@@ -1,0 +1,5 @@
+# Corrects issue with Cygwin failing to install Vim plugins through rcup
+[[ -d "/cygdrive/c/cygwin/bin" ]] && PATH="/cygdrive/c/cygwin/bin":${PATH}
+
+# User-Specific Binaries
+[[ -d "${HOME}/bin" ]] && PATH="${HOME}/bin":${PATH}
