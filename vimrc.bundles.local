@@ -1,1 +1,4 @@
 Plug 'tpope/vim-sensible'
+
+" colors
+Plug 'altercation/vim-colors-solarized'
