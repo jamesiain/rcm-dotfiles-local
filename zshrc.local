@@ -6,3 +6,10 @@
 
 # Make typed commands cyan for easy scanning and readability
 zle_highlight=(default:fg=cyan)
+
+# Use my customized fancy zsh-git-prompt
+GIT_PROMPT_EXECUTABLE="haskell"
+[[ -d "${HOME}/tools/zsh-git-prompt" ]] && \
+  source "${HOME}/tools/zsh-git-prompt/zsh-git-prompt.sh"
+PROMPT='%F{green}%m%f %B%F{yellow}%~%f%b %# '
+RPROMPT='$(git_super_status)'
