@@ -21,3 +21,14 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+set lazyredraw     " Improves responsiveness during macro execution
+
+set foldmethod=syntax
+set relativenumber " Most line numbers are relative to the current line
+set cursorline     " Highlight the current horizontal line
+
+set pastetoggle=<F2>    " To disable autoindenting before a large paste
+
+set tabstop=4     " TABs are 4 spaces wide
+set shiftwidth=4  " Indent by 4 spaces
