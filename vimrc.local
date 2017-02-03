@@ -22,7 +22,10 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
+let g:gitgutter_sign_column_always = 1
+
 set lazyredraw     " Improves responsiveness during macro execution
+set updatetime=1000
 
 set foldmethod=syntax
 set relativenumber " Most line numbers are relative to the current line
