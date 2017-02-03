@@ -4,6 +4,10 @@
 # User-Specific Binaries
 [[ -d "${HOME}/bin" ]] && PATH="${HOME}/bin":${PATH}
 
+# Use the solarized dark colors in MinTTY (Cygwin Terminal)
+[[ -d "${HOME}/tools/mintty-colors-solarized" ]] && \
+  source "${HOME}/tools/mintty-colors-solarized/mintty-solarized-dark.sh"
+
 # Make typed commands cyan for easy scanning and readability
 zle_highlight=(default:fg=cyan)
 
