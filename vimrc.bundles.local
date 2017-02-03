@@ -5,3 +5,4 @@ Plug 'airblade/vim-gitgutter'
 " colors
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/seoul256.vim'
+Plug 'ciaranm/inkpot'
