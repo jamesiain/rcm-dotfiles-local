@@ -36,6 +36,11 @@ set pastetoggle=<F2>    " To disable autoindenting before a large paste
 set tabstop=4     " TABs are 4 spaces wide
 set shiftwidth=4  " Indent by 4 spaces
 
+" replace tabs with spaces, and remove all trailing whitespace
+nnoremap <F5> :retab<Bar>:keeppatterns keepjumps %s/\s\+$//e<CR>
+
+match ErrorMsg '\s\+$'  " Highlight trailing whitespace
+
 " Open to linenumber - ex. vim my_file.c:100
 " https://github.com/halogenandtoast/vim/blob/master/vimrc#L259
 
