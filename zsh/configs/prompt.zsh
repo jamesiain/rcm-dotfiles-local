@@ -1,7 +1,7 @@
 setopt prompt_subst     # enable command substition in prompt
 
 zle_highlight=(default:fg=cyan)     # greater visibility for typed commands
-PROMPT='%F{green}%m%f %B%F{yellow}%~%f%b %# '
+PROMPT='%F{green}%m%f %F{yellow}%~%f %# '
 
 # Use my customized fancy zsh-git-prompt
 GIT_PROMPT_EXECUTABLE="haskell"
