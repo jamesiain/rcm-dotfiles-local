@@ -11,6 +11,10 @@ RPROMPT='' # no initial prompt, set dynamically
 ASYNC_PROC=0
 function precmd() {
     function async() {
+        # guard against missing $(git_super_status)
+        [[ ! -f "${HOME}/.zsh/plugins/zsh-git-prompt//zsh-git-prompt.sh" ]] && \
+            return
+
         # save to temp file
         printf "%s" "$(git_super_status)" > "/tmp/zsh_prompt_$$"
 
