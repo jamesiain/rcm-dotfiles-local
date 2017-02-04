@@ -4,9 +4,8 @@ zle_highlight=(default:fg=cyan)     # greater visibility for typed commands
 PROMPT='%F{green}%m%f %F{yellow}%~%f %# '
 
 # Use my customized fancy zsh-git-prompt
-GIT_PROMPT_EXECUTABLE="haskell"
-[[ -d "${HOME}/tools/zsh-git-prompt" ]] && \
-  source "${HOME}/tools/zsh-git-prompt/zsh-git-prompt.sh"
+[[ -d "${HOME}/.zsh/plugins/zsh-git-prompt" ]] && \
+  source "${HOME}/.zsh/plugins/zsh-git-prompt//zsh-git-prompt.sh"
 RPROMPT='' # no initial prompt, set dynamically
 
 ASYNC_PROC=0
