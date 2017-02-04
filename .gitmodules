@@ -1,0 +1,6 @@
+[submodule "zsh/plugins/zsh-git-prompt"]
+	path = zsh/plugins/zsh-git-prompt
+	url = https://github.com/jamesiain/zsh-git-prompt.git
+[submodule "zsh/plugins/diff-so-fancy"]
+	path = zsh/plugins/diff-so-fancy
+	url = https://github.com/so-fancy/diff-so-fancy.git
