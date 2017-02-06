@@ -1,3 +1,10 @@
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+
+alias -g WRF="|while read file; do"     # find . -type f WRF echo $file; done
+alias -g NOE="2> /dev/null"             # grep alias .* NOE | sort
+
+alias f='find . -iname'
+alias sed='sed -E'
+alias tlf='tail -f'
