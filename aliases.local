@@ -8,3 +8,5 @@ alias -g NOE="2> /dev/null"             # grep alias .* NOE | sort
 alias f='find . -iname'
 alias sed='sed -E'
 alias tlf='tail -f'
+
+alias tmux='tmux -2'

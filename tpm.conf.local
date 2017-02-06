@@ -1,0 +1,31 @@
+# List of plugins
+set -g @tpm_plugins '                  \
+  tmux-plugins/tpm                     \
+  tmux-plugins/tmux-sensible           \
+  tmux-plugins/tmux-prefix-highlight   \
+  tmux-plugins/tmux-pain-control       \
+  tmux-plugins/tmux-resurrect          \
+  tmux-plugins/tmux-sessionist         \
+  tmux-plugins/tmux-logging            \
+  tmux-plugins/tmux-battery            \
+  tmux-plugins/tmux-open               \
+'
+
+# show <prefix> or copy-mode activity in bottom left corner
+set -g status-left '#{prefix_highlight}'
+set -g @prefix_highlight_show_copy_mode 'on'
+set -g @prefix_highlight_copy_mode_attr 'fg=black,bg=yellow,bold'
+
+# show battery indicator in bottom right corner
+set -g status-right '#{battery_status_fg} Batt: #{battery_graph} #{battery_percentage}'
+
+# restore Vim & NeoVim sessions, if Session.vim file is present
+set -g @resurrect-strategy-vim 'session'
+set -g @resurrect-strategy-nvim 'session'
+
+# swap the default key bindings for tmux-open
+set -g @open 'C-o'
+set -g @open-editor 'o'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
