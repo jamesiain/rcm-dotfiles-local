@@ -1,0 +1,21 @@
+# Add color to the output of make
+
+make()
+{
+    local path_pattern="(([a-z,A-Z]:)*/[^/:]*)+"
+    local pathnum_pattern="${path_pattern}:[0-9]+"
+    local red=$(echo -e "\033[0;31m")
+    local cyan=$(echo -e "\033[0;36m")
+    local yellow=$(echo -e "\033[0;33m")
+    local default=$(echo -e "\033[0m")
+
+    $(/usr/bin/which --skip-functions -- make) "$@" 2>&1 \
+            | sed \
+                -e "/from[: ]/ s%${pathnum_pattern}%${cyan}&${default}%g" \
+                -e "/[Ii]n function / s%${path_pattern}%${cyan}&${default}%g" \
+                -e "/undefined reference/ s%${pathnum_pattern}%${red}&${default}%g" \
+                -e "/[Ee]rror[: ]/ s%${pathnum_pattern}%${red}&${default}%g" \
+                -e "/[Ww]arning[: ]/ s%${pathnum_pattern}%${yellow}&${default}%g"
+
+    return ${PIPESTATUS[0]}
+}
