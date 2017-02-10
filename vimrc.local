@@ -41,6 +41,30 @@ nnoremap <F5> :retab<Bar>:keeppatterns keepjumps %s/\s\+$//e<CR>
 
 match ErrorMsg '\s\+$'  " Highlight trailing whitespace
 
+" Clear the search buffer (search highlighting)
+:nnoremap <ESC><ESC> :nohlsearch<CR>
+
+" disable Ex Mode & use Q for formatting paragraphs
+vmap Q gq
+nmap Q gqap
+
+" Yank from cursor to EOL, consistent with C and D
+nnoremap Y y$
+
+" Indent shifting does not exit Visual Mode
+vnoremap < <gv
+vnoremap > >gv
+
+" Switch between the last two files
+nnoremap <leader><leader> <c-^>
+
+" Zoom a vim pane to maximum, and re-balance
+nnoremap <leader>- :wincmd _<CR>:wincmd \|<CR>
+nnoremap <leader>= :wincmd =<CR>
+
+" Show Tagbar
+nnoremap <F8> :TagbarToggle<CR>
+
 " Open to linenumber - ex. vim my_file.c:100
 " https://github.com/halogenandtoast/vim/blob/master/vimrc#L259
 
