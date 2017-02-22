@@ -1,6 +1,8 @@
 [user]
   name = James MacMillan
   email = jamesiain@me.com
+[color "status"]
+  changed = yellow
 [core]
   editor = vim
 [credential]
