@@ -4,7 +4,7 @@ unbind C-b
 bind C-f send-prefix
 
 # clear screen command (replaces standard 'C-l' overridden below)
-bind l send-keys C-l
+bind C-g send-keys -R Enter
 
 # key bindings for vim-tmux-navigator plugin
 is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
