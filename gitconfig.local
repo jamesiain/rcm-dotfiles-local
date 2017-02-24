@@ -7,6 +7,8 @@
   editor = vim
 [credential]
   helper = cache --timeout 7200
+[help]
+  autocorrect = 1
 [pager]
   diff = diff-so-fancy | less --tabs=4 -RFX
   show = diff-so-fancy | less --tabs=4 -RFX
