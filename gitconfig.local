@@ -15,8 +15,11 @@
 [alias]
   patch = !git --no-pager diff --no-color
   l = log --abbrev-commit --color --pretty='%C(red)%h%C(reset) -%C(auto)%d%C(reset) %s %C(cyan)[%an]%C(reset) %C(green)(%cr)%C(reset)'
+  la = !git l --all
   ld = !git l --simplify-by-decoration
   lg = !git l --graph
-  la = !git l --all
   lda = !git ld --all
   lga = !git lg --all
+  st = status -s
+  home = rev-parse --show-toplevel
+  whereami = rev-parse --abbrev-ref HEAD
