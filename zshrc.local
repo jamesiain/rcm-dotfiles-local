@@ -3,3 +3,5 @@
 
 # User-Specific Binaries
 [[ -d "${HOME}/bin" ]] && PATH="${HOME}/bin":${PATH}
+
+eval $(dircolors ${HOME}/.dircolors)
