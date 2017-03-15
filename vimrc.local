@@ -1,5 +1,9 @@
 set background=dark
-colorscheme solarized
+if has('win32unix')
+    colorscheme neodark
+else
+    colorscheme solarized
+endif
 
 let g:airline_theme = 'bubblegum'
 let g:airline#extensions#tabline#enabled = 1
