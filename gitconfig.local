@@ -23,3 +23,6 @@
   st = status -s
   home = rev-parse --show-toplevel
   whereami = rev-parse --abbrev-ref HEAD
+  praise = blame
+  recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
+  overview = !git lga --since='2 weeks' --no-merges
