@@ -7,7 +7,7 @@ PROMPT='%F{green}%m%f %F{yellow}%~%f %# '
 [[ -d "${HOME}/.zsh/plugins/zsh-git-prompt" ]] && \
   source "${HOME}/.zsh/plugins/zsh-git-prompt//zsh-git-prompt.sh"
 
-function zle-line-init zle-keymap-select redraw-prompt {
+function zle-keymap-select redraw-prompt {
     NORMAL_MODE="%{$fg[black]%} %{$bg[yellow]%} NORMAL %{$reset_color%}"
     VI_RPROMPT="${${KEYMAP/vicmd/$NORMAL_MODE}/(main|viins)/}"
 
@@ -21,7 +21,6 @@ function zle-line-init zle-keymap-select redraw-prompt {
     zle && zle reset-prompt
 }
 
-zle -N zle-line-init
 zle -N zle-keymap-select
 
 ASYNC_PROC=0
