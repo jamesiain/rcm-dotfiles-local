@@ -11,6 +11,9 @@ Plug 'sjl/vitality.vim'
 Plug 'majutsushi/tagbar'
 Plug 'vimwiki/vimwiki'
 Plug 'Yggdroot/indentLine'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'kana/vim-operator-user'
+Plug 'rhysd/vim-clang-format'
 
 " colors
 Plug 'altercation/vim-colors-solarized'

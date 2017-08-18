@@ -90,6 +90,16 @@ autocmd BufNewFile,BufEnter,BufRead *:* nested call OpenToLineNumber()
 " Save anytime we leave a buffer or Vim loses focus
 autocmd BufLeave,FocusLost * silent! wall
 
+" Use clang-format to clean up source file syntax
+let g:clang_format#code_style = "google"
+let g:clang_format#style_options = {
+  \ "Standard" : "C++11",
+  \ "BreakBeforeBraces" : "Stroustrup"}
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+autocmd FileType c,cpp,objc ClangFormatAutoEnable
+
 " Disable inherited syntastic
 let g:syntastic_mode_map = {
   \ 'mode': 'passive',
