@@ -5,7 +5,7 @@ PROMPT='%F{green}%m%f %F{yellow}%~%f %# '
 
 # Use my customized fancy zsh-git-prompt
 [[ -d "${HOME}/.zsh/plugins/zsh-git-prompt" ]] && \
-  source "${HOME}/.zsh/plugins/zsh-git-prompt//zsh-git-prompt.sh"
+  source "${HOME}/.zsh/plugins/zsh-git-prompt/zsh-git-prompt.sh"
 
 function zle-keymap-select redraw-prompt {
     NORMAL_MODE="%{$fg[black]%} %{$bg[yellow]%} NORMAL %{$reset_color%}"
