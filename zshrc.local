@@ -1,3 +1,6 @@
+# Ignore CR, if running in Cygwin
+[[ ${OSTYPE} = 'cygwin' ]] && export SHELLOPTS=igncr
+
 # Corrects issue with Cygwin failing to install Vim plugins through rcup
 [[ -d "/cygdrive/c/cygwin/bin" ]] && PATH="/cygdrive/c/cygwin/bin":${PATH}
 
