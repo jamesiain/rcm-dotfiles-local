@@ -98,7 +98,7 @@ let g:clang_format#style_options = {
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
-autocmd FileType c,cpp,objc ClangFormatAutoEnable
+" autocmd FileType c,cpp,objc ClangFormatAutoEnable
 
 " Disable inherited syntastic
 let g:syntastic_mode_map = {
