@@ -9,6 +9,7 @@
 
 export JLEVEL=4
 
+[[ ${OSTYPE} = 'darwin'* ]] && alias dircolors='gdircolors'
 eval $(dircolors ${HOME}/.dircolors)
 
 # Colorize man pages
