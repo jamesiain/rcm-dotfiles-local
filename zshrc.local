@@ -7,6 +7,9 @@
 # User-Specific Binaries
 [[ -d "${HOME}/bin" ]] && PATH="${HOME}/bin":${PATH}
 
+# enable command-line fuzzy finder
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
 export JLEVEL=4
 
 [[ ${OSTYPE} = 'darwin'* ]] && alias dircolors='gdircolors'
