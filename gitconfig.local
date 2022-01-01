@@ -5,6 +5,8 @@
   changed = yellow
 [core]
   editor = vim
+[commit]
+  template = ~/.gitmessage.local
 [credential]
   helper = cache --timeout 7200
 [help]
