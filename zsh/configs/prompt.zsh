@@ -7,7 +7,13 @@ function zle-line-init zle-keymap-select {
     [[ -d $(brew --prefix)/opt/gitstatus ]] && \
       source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
 
-    PROMPT='%F{green}%n@%m%f %F{yellow}%3~%f %# '
+    if [[ -n $SSH_CONNECTION ]]; then
+        LOCAL_COLOR="magenta"
+    else
+        LOCAL_COLOR="green"
+    fi
+
+    PROMPT="%F{${LOCAL_COLOR}}%n@%m%f %F{yellow}%3~%f %# "
 
     NORMAL_MODE="%{$fg[black]%} %{$bg[yellow]%} NORMAL %{$reset_color%}"
     VI_RPROMPT="${${KEYMAP/vicmd/$NORMAL_MODE}/(main|viins)/}"
