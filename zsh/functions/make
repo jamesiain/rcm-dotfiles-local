@@ -7,6 +7,9 @@ make()
     local path_pattern="(([a-z,A-Z]:)?/[^/:]*)+"
     local pathnum_pattern="${path_pattern}(:[0-9]+)+"
 
+    local permission_pattern="[Pp]ermission [Dd]enied"
+    local permission_with_prefix="${colon_ext}${permission_pattern}"
+
     local error_pattern="[Ee]rror"
     local error_with_ext="${error_pattern}${colon_ext}"
 
@@ -24,6 +27,7 @@ make()
                 -e "/[Ii]n function / s%${path_pattern}%${cyan}&${default}%g" \
                     \
                 -e "/undefined reference/ s%${pathnum_pattern}%${red}&${default}%g" \
+                -e "/${permission_with_prefix}/ s%${permission_pattern}%${red}&${default}%g" \
                 -e "/${error_with_ext}/ {s%${error_pattern}%${red}&${default}%g; s%${pathnum_pattern}%${red}&${default}%g}" \
                     \
                 -e "/${warning_with_ext}/ {s%${warning_pattern}%${yellow}&${default}%g; s%${pathnum_pattern}%${yellow}&${default}%g}" \
