@@ -13,7 +13,7 @@ make()
     local permission_pattern="[Pp]ermission [Dd]enied"
     local permission_with_prefix="${colon_ext}${permission_pattern}"
 
-    local error_pattern="[Ee]rror"
+    local error_pattern="[^W][Ee]rror"
     local error_with_ext="${error_pattern}${colon_ext}"
 
     local warning_pattern="[Ww]arning"
