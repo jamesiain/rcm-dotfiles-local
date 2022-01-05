@@ -2,8 +2,16 @@
 
 make()
 {
+    local colon_ext="[: ]+ "
+
     local path_pattern="(([a-z,A-Z]:)?/[^/:]*)+"
-    local pathnum_pattern="${path_pattern}:[0-9]+"
+    local pathnum_pattern="${path_pattern}(:[0-9]+)+"
+
+    local error_pattern="[Ee]rror"
+    local error_with_ext="${error_pattern}${colon_ext}"
+
+    local warning_pattern="[Ww]arning"
+    local warning_with_ext="${warning_pattern}${colon_ext}"
 
     local red=$(echo -e "\033[0;31m")
     local cyan=$(echo -e "\033[0;36m")
@@ -14,9 +22,11 @@ make()
             | $(brew --prefix)/opt/gnu-sed/bin/sed -E \
                 -e "/from[: ]/ s%${pathnum_pattern}%${cyan}&${default}%g" \
                 -e "/[Ii]n function / s%${path_pattern}%${cyan}&${default}%g" \
+                    \
                 -e "/undefined reference/ s%${pathnum_pattern}%${red}&${default}%g" \
-                -e "/[Ee]rror[: ]/ s%${pathnum_pattern}%${red}&${default}%g" \
-                -e "/[Ww]arning[: ]/ s%${pathnum_pattern}%${yellow}&${default}%g"
+                -e "/${error_with_ext}/ {s%${error_pattern}%${red}&${default}%g; s%${pathnum_pattern}%${red}&${default}%g}" \
+                    \
+                -e "/${warning_with_ext}/ {s%${warning_pattern}%${yellow}&${default}%g; s%${pathnum_pattern}%${yellow}&${default}%g}" \
 
     return ${PIPESTATUS[0]}
 }
