@@ -20,8 +20,19 @@ function zle-line-init zle-keymap-select {
 
     RPROMPT="${VI_RPROMPT} ${GITSTATUS_PROMPT}"
 
-    zle reset-prompt    # redisplay
+    zle reset-prompt
 }
 
 zle -N zle-line-init
 zle -N zle-keymap-select
+
+function change-prompt-on-accept-line {
+
+    PROMPT="%# "
+    RPROMPT="%F{magenta} %D %* %f"
+    zle reset-prompt
+    zle accept-line
+}
+
+zle -N change-prompt-on-accept-line
+bindkey "^M" change-prompt-on-accept-line
