@@ -2,6 +2,8 @@ setopt prompt_subst     # enable command substition in prompt
 
 zle_highlight=(default:fg=cyan)     # greater visibility for typed commands
 
+precmd() { print "" }       # Print a blank line before rendering the new prompt
+
 function zle-line-init zle-keymap-select {
     # Git status information for shell prompt
     [[ -d $(brew --prefix)/opt/gitstatus ]] && \
