@@ -2,9 +2,27 @@ setopt prompt_subst     # enable command substition in prompt
 
 zle_highlight=(default:fg=cyan)     # greater visibility for typed commands
 
-precmd() {
-    print ""    # Print a blank line before rendering the new prompt
+preexec() {
+    cmd_timestamp=$(( EPOCHREALTIME*1000 ))
+
+    [[ -z $BUFFER ]] && cmd_empty=TRUE
 }
+
+precmd() {
+    local stop=$(( EPOCHREALTIME*1000 ))
+    local start=${cmd_timestamp:-$stop}
+    integer elapsed=$stop-$start
+
+    if [[ -n $cmd_empty ]]; then
+        echo "$fg[black]$bg[magenta] ELAPSED TIME: $elapsed ms $reset_color"
+        echo ""    # Print a blank line before rendering the new prompt
+    fi
+
+    unset cmd_timestamp
+    unset cmd_empty
+}
+
+zmodload zsh/datetime
 
 function zle-line-init zle-keymap-select {
     # Git status information for shell prompt
