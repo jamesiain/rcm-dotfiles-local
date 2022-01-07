@@ -2,7 +2,9 @@ setopt prompt_subst     # enable command substition in prompt
 
 zle_highlight=(default:fg=cyan)     # greater visibility for typed commands
 
-precmd() { print "" }       # Print a blank line before rendering the new prompt
+precmd() {
+    print ""    # Print a blank line before rendering the new prompt
+}
 
 function zle-line-init zle-keymap-select {
     # Git status information for shell prompt
@@ -29,9 +31,12 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 function change-prompt-on-accept-line {
-
     PROMPT="%# "
-    RPROMPT="%F{magenta} %D %* %f"
+    if [[ -n $BUFFER ]]; then
+        RPROMPT="%F{magenta} %D %* %f"
+    else
+        RPROMPT=""
+    fi
     zle reset-prompt
     zle accept-line
 }
