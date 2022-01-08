@@ -41,12 +41,10 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 function change-prompt-on-accept-line {
-    PROMPT="%# "
-    if [[ -n $BUFFER ]]; then
-        RPROMPT="%F{magenta} %D %* %f"
-    else
-        RPROMPT=""
-    fi
+    # PROMPT="%F{magenta}%D %*%f %# "
+    PROMPT="%F{magenta}%D{%F %T}%f %# "
+    RPROMPT=""
+
     zle reset-prompt
     zle accept-line
 }
