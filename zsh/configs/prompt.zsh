@@ -13,9 +13,11 @@ precmd() {
     local start=${cmd_timestamp:-$stop}
     integer elapsed=$stop-$start
 
+    local elapsed_report=" Elapsed time: $elapsed ms "
+    local padding="${(l:(( $COLUMNS - ${#elapsed_report} )):: :::)}"
+
     if [[ -n $cmd_empty ]]; then
-        echo "$fg[black]$bg[magenta] ELAPSED TIME: $elapsed ms $reset_color"
-        echo ""    # Print a blank line before rendering the new prompt
+        echo "$padding$fg[black]$bg[magenta]$elapsed_report$reset_color"
     fi
 
     unset cmd_timestamp
