@@ -3,24 +3,14 @@ setopt prompt_subst     # enable command substition in prompt
 zle_highlight=(default:fg=cyan)     # greater visibility for typed commands
 
 preexec() {
-    cmd_timestamp=$(( EPOCHREALTIME*1000 ))
-
     [[ -z $BUFFER ]] && cmd_empty=TRUE
 }
 
 precmd() {
-    local stop=$(( EPOCHREALTIME*1000 ))
-    local start=${cmd_timestamp:-$stop}
-    integer elapsed=$stop-$start
-
-    local elapsed_report=" Elapsed time: $elapsed ms "
-    local padding="${(l:(( $COLUMNS - ${#elapsed_report} )):: :::)}"
-
     if [[ -n $cmd_empty ]]; then
-        echo "$padding$fg[black]$bg[magenta]$elapsed_report$reset_color"
+        echo ""
     fi
 
-    unset cmd_timestamp
     unset cmd_empty
 }
 
