@@ -2,6 +2,10 @@ setopt prompt_subst     # enable command substition in prompt
 
 zle_highlight=(default:fg=cyan)     # greater visibility for typed commands
 
+running_in_docker() {
+    (awk -F/ '$2 == "docker"' /proc/self/cgroup | read non_empty_input)
+}
+
 preexec() {
     [[ -z $BUFFER ]] && cmd_empty=TRUE
 }
@@ -19,7 +23,12 @@ zmodload zsh/datetime
 function zle-line-init zle-keymap-select {
     # Git status information for shell prompt
     [[ -d $(brew --prefix)/opt/gitstatus ]] && \
-      source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
+        source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
+
+    PROMPT=""
+
+    running_in_docker && \
+        PROMPT+="%F{blue}%B[ %b%f"
 
     if [[ -n $SSH_CONNECTION ]]; then
         LOCAL_COLOR="magenta"
@@ -27,12 +36,15 @@ function zle-line-init zle-keymap-select {
         LOCAL_COLOR="green"
     fi
 
-    PROMPT="%F{${LOCAL_COLOR}}%n@%m%f %F{yellow}%3~%f %# "
+    PROMPT+="%F{${LOCAL_COLOR}}%n@%m%f %F{yellow}%3~%f %# "
 
     NORMAL_MODE="%{$fg[black]%} %{$bg[yellow]%} NORMAL %{$reset_color%}"
     VI_RPROMPT="${${KEYMAP/vicmd/$NORMAL_MODE}/(main|viins)/}"
 
     RPROMPT="${VI_RPROMPT} ${GITSTATUS_PROMPT}"
+
+    running_in_docker && \
+        RPROMPT+="%F{blue}%B ]%b%f"
 
     zle reset-prompt
 }
