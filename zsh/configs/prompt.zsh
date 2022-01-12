@@ -36,7 +36,8 @@ function zle-line-init zle-keymap-select {
         LOCAL_COLOR="green"
     fi
 
-    PROMPT+="%F{${LOCAL_COLOR}}%n@%m%f %F{yellow}%3~%f %# "
+    PROMPT+="%F{%(!.red.${LOCAL_COLOR})}%n%f"
+    PROMPT+="%F{${LOCAL_COLOR}}@%m%f %F{yellow}%3~%f %# "
 
     NORMAL_MODE="%{$fg[black]%} %{$bg[yellow]%} NORMAL %{$reset_color%}"
     VI_RPROMPT="${${KEYMAP/vicmd/$NORMAL_MODE}/(main|viins)/}"
