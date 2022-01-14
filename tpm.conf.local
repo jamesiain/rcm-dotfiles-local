@@ -17,8 +17,7 @@ set -g @prefix_highlight_show_copy_mode 'on'
 set -g @prefix_highlight_copy_mode_attr 'fg=black,bg=yellow,bold'
 
 # show battery indicator in bottom right corner
-if-shell '[[ `uname` == "Darwin" ]]' \
-    'set -g status-right "#{battery_status_fg} Batt: #{battery_graph} #{battery_percentage}"'
+set -g status-right '#{battery_status_bg} Batt: #{battery_icon} #{battery_percentage} #{battery_remain} | %a %h-%d %H:%M '
 
 # restore Vim & NeoVim sessions, if Session.vim file is present
 set -g @resurrect-strategy-vim 'session'
