@@ -26,3 +26,7 @@ export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 7)
 export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 export LESS_TERMCAP_mr=$(tput rev)
 export LESS_TERMCAP_mh=$(tput dim)
+
+# Enable HomeBrew on Linux
+[[ ${OSTYPE} = 'linux'* ]] && \
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
