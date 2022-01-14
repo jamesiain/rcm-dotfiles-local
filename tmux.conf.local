@@ -1,6 +1,3 @@
-# clear screen command (replaces standard 'C-l' overridden below)
-bind C-g send-keys -R Enter
-
 # key bindings for vim-tmux-navigator plugin
 is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
 bind -n C-h if-shell "$is_vim" "send-keys C-h" "select-pane -L"
