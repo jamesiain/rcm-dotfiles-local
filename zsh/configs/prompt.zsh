@@ -3,7 +3,11 @@ setopt prompt_subst     # enable command substition in prompt
 zle_highlight=(default:fg=cyan)     # greater visibility for typed commands
 
 running_in_docker() {
-    (awk -F/ '$2 == "docker"' /proc/self/cgroup | read non_empty_input)
+    if [[ ${OSTYPE} = 'linux'* ]]; then
+        (awk -F/ '$2 == "docker"' /proc/self/cgroup | read non_empty_input)
+    else
+        false
+    fi
 }
 
 preexec() {
