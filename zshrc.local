@@ -1,3 +1,6 @@
+# Usually set by login; dircolors complains if it is missing
+[[ -z ${SHELL} ]] && export SHELL=$(which zsh)
+
 # Ignore CR, if running in Cygwin
 [[ ${OSTYPE} = 'cygwin' ]] && export SHELLOPTS=igncr
 
