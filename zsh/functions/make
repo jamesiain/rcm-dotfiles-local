@@ -25,8 +25,8 @@ make()
     local cyan=$(echo -e "\033[0;36m")
     local default=$(echo -e "\033[0m")
 
-    $($(brew --prefix)/opt/gnu-which/bin/which --skip-functions -- make) "$@" 2>&1 \
-            | $(brew --prefix)/opt/gnu-sed/bin/sed -E \
+    $($(brew --prefix)/opt/gnu-which/bin/gwhich --skip-functions -- make) "$@" 2>&1 \
+            | $(brew --prefix)/opt/gnu-sed/bin/gsed -E \
                 -e "/${makecmd_with_ext}/ s%${makecmd_pattern}%${green}&${default}%g" \
                     \
                 -e "/from[: ]/ s%${pathnum_pattern}%${cyan}&${default}%g" \
