@@ -40,6 +40,10 @@ function zle-line-init zle-keymap-select {
         LOCAL_COLOR="green"
     fi
 
+    ZSH_THEME_VIRTUALENV_PREFIX="%F{cyan}["
+    ZSH_THEME_VIRTUALENV_SUFFIX="]%f "
+
+    PROMPT+="\$(virtualenv_prompt_info)"
     PROMPT+="%F{%(!.red.${LOCAL_COLOR})}%n%f"
     PROMPT+="%F{${LOCAL_COLOR}}@%m%f %F{yellow}%3~%f %# "
 
