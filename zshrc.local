@@ -33,3 +33,11 @@ export LESS_TERMCAP_mh=$(tput dim)
 # Enable HomeBrew on Linux
 [[ ${OSTYPE} = 'linux'* ]] && \
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+if type brew &>/dev/null; then
+
+    # Activate zsh-autosuggestions
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    bindkey "^ " forward-word
+
+fi
