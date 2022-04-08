@@ -1,4 +1,5 @@
 setopt prompt_subst     # enable command substition in prompt
+setopt print_exit_value # enable printing exit code when non-zero
 
 zle_highlight=(default:fg=cyan)     # greater visibility for typed commands
 
