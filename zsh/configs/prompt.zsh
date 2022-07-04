@@ -1,5 +1,6 @@
-setopt prompt_subst     # enable command substition in prompt
-setopt print_exit_value # enable printing exit code when non-zero
+setopt prompt_subst       # enable command substition in prompt
+setopt print_exit_value   # enable printing exit code when non-zero
+setopt transient_rprompt  # do not copy RPROMPT when selecting text
 
 zle_highlight=(default:fg=cyan)     # greater visibility for typed commands
 

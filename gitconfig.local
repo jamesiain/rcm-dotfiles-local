@@ -1,6 +1,6 @@
 [user]
   name = James MacMillan
-  email = jamesiain@me.com
+  email = james.macmillan@allenvanguard.com
 [color "status"]
   changed = yellow
 [core]
@@ -9,6 +9,8 @@
   template = ~/.gitmessage.local
 [credential]
   helper = cache --timeout 7200
+[merge]
+  conflictstyle = diff3
 [help]
   autocorrect = 1
 [pager]
