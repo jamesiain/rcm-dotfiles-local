@@ -1,6 +1,6 @@
 [user]
   name = James MacMillan
-  email = jamesiain@me.com
+  email = james.macmillan@allenvanguard.com
 [color "status"]
   changed = yellow
 [core]
@@ -14,7 +14,7 @@
   show = diff-so-fancy | less --tabs=4 -RFX
 [alias]
   patch = !git --no-pager diff --no-color
-  l = log --abbrev-commit --color --pretty='%C(red)%h%C(reset) -%C(auto)%d%C(reset) %s %C(cyan)[%an]%C(reset) %C(green)(%cr)%C(reset)'
+  l = log --abbrev-commit --color --pretty='%C(red)%h%C(reset) -%C(auto)%d%C(reset) %s %C(yellow)[%an]%C(reset) %C(cyan)(%cr)%C(reset)'
   la = !git l --all
   ld = !git l --simplify-by-decoration
   lg = !git l --graph
@@ -24,5 +24,6 @@
   home = rev-parse --show-toplevel
   whereami = rev-parse --abbrev-ref HEAD
   praise = blame
-  recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format="%(refname:short)"
+  recent = for-each-ref --count=10 --sort=-authordate refs/heads/ --format=%(align:30,left)%(color:cyan)%(authordate:iso8601)%(end)%(align:25,left)%(color:yellow)%(authorname)%(end)%(color:reset)%(refname:short)
   overview = !git lga --since='2 weeks' --no-merges
+  remotes = for-each-ref --format=%(align:30,left)%(color:cyan)%(authordate:iso8601)%(end)%(align:25,left)%(color:yellow)%(authorname)%(end)%(align:25,left)%(color:reset)%(refname:rstrip=-3)%(end)%(refname:strip=3) --sort=-authordate refs/remotes

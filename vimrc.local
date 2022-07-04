@@ -2,6 +2,7 @@ set background=dark
 if has('win32unix')
     colorscheme neodark
 else
+    let g:solarized_termcolors=256
     colorscheme solarized
 endif
 
