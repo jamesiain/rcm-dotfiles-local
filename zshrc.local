@@ -13,7 +13,7 @@
 # enable command-line fuzzy finder
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
-export JLEVEL=4
+unset JLEVEL
 unset NAME
 
 [[ ${OSTYPE} = 'darwin'* ]] && alias dircolors='gdircolors'
