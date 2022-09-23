@@ -42,3 +42,5 @@ if type brew &>/dev/null; then
     bindkey "^ " forward-word
 
 fi
+
+export USERNAME
