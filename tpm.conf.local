@@ -1,7 +1,15 @@
-# show <prefix> or copy-mode activity in bottom left corner
-set -g status-left '#{prefix_highlight}'
+# show <prefix>, copy-mode or sync-mode activity in bottom right corner
+set -g status-left '#{prefix_highlight} '
+set -g @prefix_highlight_empty_prompt '      '
+set -g @prefix_highlight_empty_attr 'fg=default,bg=default'
+set -g @prefix_highlight_prefix_prompt 'WAIT'
+set -g @prefix_highlight_prefix_attr 'fg=white,bg=blue'
+set -g @prefix_highlight_copy_prompt 'COPY'
 set -g @prefix_highlight_show_copy_mode 'on'
 set -g @prefix_highlight_copy_mode_attr 'fg=black,bg=yellow,bold'
+set -g @prefix_highlight_sync_prompt 'SYNC'
+set -g @prefix_highlight_show_sync_mode 'on'
+set -g @prefix_highlight_sync_mode_attr 'fg=black,bg=green'
 
 # show battery indicator in bottom right corner
 set -g status-right '#{battery_status_bg} Batt: #{battery_icon} #{battery_percentage} #{battery_remain} | %a %h-%d %H:%M '
