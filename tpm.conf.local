@@ -11,8 +11,12 @@ set -g @prefix_highlight_sync_prompt 'SYNC'
 set -g @prefix_highlight_show_sync_mode 'on'
 set -g @prefix_highlight_sync_mode_attr 'fg=black,bg=green'
 
+# pomodoro
+set -g @pomodoro_notifications 'on'
+set -g @pomodoro_sounds 'on'
+
 # show battery indicator in bottom right corner
-set -g status-right '#{battery_status_bg} Batt: #{battery_icon} #{battery_percentage} #{battery_remain} | %a %h-%d %H:%M '
+set -g status-right '#{pomodoro_status}#{battery_color_bg} #{battery_icon} #{battery_percentage} #{battery_remain} | %a %h-%d %H:%M '
 
 # restore Vim & NeoVim sessions, if Session.vim file is present
 set -g @resurrect-strategy-vim 'session'
