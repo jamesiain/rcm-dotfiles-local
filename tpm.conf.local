@@ -1,3 +1,16 @@
+# List of plugins
+set -g @tpm_plugins ''
+set -ga @tpm_plugins 'tmux-plugins/tpm '
+set -ga @tpm_plugins 'tmux-plugins/tmux-sensible '
+set -ga @tpm_plugins 'tmux-plugins/tmux-prefix-highlight '
+set -ga @tpm_plugins 'tmux-plugins/tmux-pain-control '
+set -ga @tpm_plugins 'tmux-plugins/tmux-resurrect '
+set -ga @tpm_plugins 'tmux-plugins/tmux-sessionist '
+set -ga @tpm_plugins 'tmux-plugins/tmux-logging '
+set -ga @tpm_plugins 'tmux-plugins/tmux-battery '
+set -ga @tpm_plugins 'tmux-plugins/tmux-open '
+set -ga @tpm_plugins 'olimorris/tmux-pomodoro-plus '
+
 # show <prefix>, copy-mode or sync-mode activity in bottom right corner
 set -g status-left '#{prefix_highlight} '
 set -g @prefix_highlight_empty_prompt '      '
