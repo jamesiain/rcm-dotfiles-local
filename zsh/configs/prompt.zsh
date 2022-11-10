@@ -24,7 +24,12 @@ precmd() {
 
 zmodload zsh/datetime
 
-function zle-line-init zle-keymap-select {
+function zle-line-init zle-keymap-select zle-line-pre-redraw {
+    if [[ ! -z $ACCEPT_LINE ]]; then
+        ACCEPT_LINE=""
+        return
+    fi
+
     PROMPT=""
 
     running_in_docker && \
@@ -43,10 +48,20 @@ function zle-line-init zle-keymap-select {
     PROMPT+="%F{%(!.red.blue)}%n%f"
     PROMPT+="%F{cyan}@%f%F{${LOCAL_COLOR}}%m%f %F{yellow}%3~%f %# "
 
-    NORMAL_MODE="%{$fg[black]%} %{$bg[yellow]%} NORMAL %{$reset_color%}"
-    VI_RPROMPT="${${KEYMAP/vicmd/$NORMAL_MODE}/(main|viins)/}"
+    if [[ "$KEYMAP" == vicmd ]]; then
+        local VISUAL_MODE="%{$fg[black]%} %{$bg[cyan]%} VISUAL %{$reset_color%}"
+        local NORMAL_MODE="%{$fg[black]%} %{$bg[yellow]%} NORMAL %{$reset_color%}"
 
-    RPROMPT="${VI_RPROMPT} ${GITSTATUS_PROMPT}$(svn_prompt_info)"
+        if (( REGION_ACTIVE )); then
+            VI_MODE="$VISUAL_MODE"
+        else
+            VI_MODE="$NORMAL_MODE"
+        fi
+    else
+        VI_MODE=""
+    fi
+
+    RPROMPT="${VI_MODE} ${GITSTATUS_PROMPT}$(svn_prompt_info)"
 
     running_in_docker && \
         RPROMPT+="%F{blue}%B ]%b%f"
@@ -56,8 +71,11 @@ function zle-line-init zle-keymap-select {
 
 zle -N zle-line-init
 zle -N zle-keymap-select
+zle -N zle-line-pre-redraw
 
+ACCEPT_LINE=""
 function change-prompt-on-accept-line {
+    ACCEPT_LINE="true"
     PROMPT="%F{magenta}%D{%F %T}%f %# "
     RPROMPT=""
 
