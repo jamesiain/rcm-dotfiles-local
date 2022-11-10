@@ -70,7 +70,6 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 
 function change-prompt-on-accept-line {
-    # PROMPT="%F{magenta}%D %*%f %# "
     PROMPT="%F{magenta}%D{%F %T}%f %# "
     RPROMPT=""
 
