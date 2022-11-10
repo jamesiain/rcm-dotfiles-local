@@ -25,18 +25,6 @@ precmd() {
 zmodload zsh/datetime
 
 function zle-line-init zle-keymap-select {
-    # Git status information for shell prompt
-    [[ -d $(brew --prefix)/opt/gitstatus ]] && \
-        source $(brew --prefix)/opt/gitstatus/gitstatus.prompt.zsh
-
-    # SVN status information for shell prompt
-    ZSH_THEME_SVN_PROMPT_PREFIX="%B"
-    ZSH_THEME_SVN_PROMPT_SUFFIX="%b"
-    ZSH_PROMPT_BASE_COLOR="%{$fg[$reset_color]%}"
-    ZSH_THEME_BRANCH_NAME_COLOR="%{$fg[white]%}"
-
-    source ~/.zsh/configs/svn_prompt_info.zsh
-
     PROMPT=""
 
     running_in_docker && \
