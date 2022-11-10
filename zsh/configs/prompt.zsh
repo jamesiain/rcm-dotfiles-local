@@ -78,4 +78,5 @@ function change-prompt-on-accept-line {
 }
 
 zle -N change-prompt-on-accept-line
-bindkey "^M" change-prompt-on-accept-line
+bindkey -M viins "^M" change-prompt-on-accept-line
+bindkey -M vicmd "^M" change-prompt-on-accept-line
