@@ -28,9 +28,10 @@ set -g @prefix_highlight_sync_mode_attr 'fg=black,bg=green'
 set -g @pomodoro_notifications 'on'
 set -g @pomodoro_sounds 'on'
 
-# show pomodoro, battery status, date/time, and TMUX session name in bottom right corner (allow length to extend without limit)
-set -g status-right '#{pomodoro_status}#{battery_color_bg} #{battery_icon} #{battery_percentage} #{battery_remain} | %a %h-%d %H:%M #[fg=black,bg=colour208] #S '
-set -g status-right-length 0
+# show pomodoro, battery status, date/time, and TMUX session name in bottom right corner
+set -g status-right '#{pomodoro_status}#{battery_color_bg} #{battery_icon} #{battery_percentage} #{battery_remain} | %a %h-%d %H:%M:%S #[fg=black,bg=colour208] #S '
+set -g status-right-length 0  # 0: allow length to extend without limit
+set -g status-interval 1      # 1: update status bar after one second
 
 # restore Vim & NeoVim sessions, if Session.vim file is present
 set -g @resurrect-strategy-vim 'session'
