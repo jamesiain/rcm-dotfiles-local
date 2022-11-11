@@ -79,8 +79,10 @@ function change-prompt-on-accept-line {
     PROMPT="%F{magenta}%D{%F %T}%f %# "
     RPROMPT=""
 
-    zle reset-prompt
-    zle accept-line
+    if [[ ! -z $BUFFER ]]; then
+        zle reset-prompt
+        zle accept-line
+    fi
 }
 
 zle -N change-prompt-on-accept-line
